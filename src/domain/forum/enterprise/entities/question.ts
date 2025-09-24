@@ -18,7 +18,7 @@ export class Question extends Entity<QuestionProps> {
     return this.props.authorId
   }
 
-  get bestAmswerId() {
+  get bestAnswerId() {
     return this.props.bestAnswerId
   }
 
@@ -44,10 +44,6 @@ export class Question extends Entity<QuestionProps> {
 
   get exerpt() {
     return this.content.substring(0, 120).trimEnd().concat('...')
-  }
-
-  get bestAnswerId() {
-    return this.props.bestAnswerId
   }
 
   private touch() {
@@ -78,7 +74,7 @@ export class Question extends Entity<QuestionProps> {
       {
         ...props,
         slug: props.slug ?? Slug.createFromText(props.title),
-        createdAt: new Date(),
+        createdAt: props.createdAt ?? new Date(),
       },
       id,
     )
