@@ -2,7 +2,7 @@ import { QuestionRepository } from '../repositories/question-repository'
 import { QuestionCommentRepository } from '../repositories/question-comments-repository'
 import { QuestionComment } from '../../enterprise/entities/question-comment'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
-import { Either, left, rigth } from '@/core/either'
+import { Either, left, right } from '@/core/either'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface CommentOnQuestionUseCaseRequest {
@@ -43,7 +43,7 @@ export class CommentOnQuestionUseCase {
 
     await this.questionCommentRepository.create(questionComment)
 
-    return rigth({
+    return right({
       questionComment,
     })
   }

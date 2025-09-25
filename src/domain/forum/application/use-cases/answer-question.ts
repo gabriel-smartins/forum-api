@@ -1,4 +1,4 @@
-import { Either, rigth } from '@/core/either'
+import { Either, right } from '@/core/either'
 import { UniqueEntityID } from '../../../../core/entities/unique-entity-id'
 import { Answer } from '../../enterprise/entities/answer'
 import { AnswersRepository } from '../repositories/answers-repository'
@@ -32,7 +32,7 @@ export class AnswerQuestionUseCase {
 
     await this.answersRepository.create(answer)
 
-    return rigth({
+    return right({
       answer,
     })
   }

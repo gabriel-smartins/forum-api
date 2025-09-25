@@ -1,4 +1,4 @@
-import { Either, left, rigth } from '@/core/either'
+import { Either, left, right } from '@/core/either'
 import { QuestionRepository } from '../repositories/question-repository'
 import { NotAllowedError } from './errors/not-allowed-error'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
@@ -32,6 +32,6 @@ export class DeleteQuestionUseCase {
 
     await this.questionRepository.delete(question)
 
-    return rigth({})
+    return right({})
   }
 }
