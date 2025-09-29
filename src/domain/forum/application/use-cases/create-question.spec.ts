@@ -1,5 +1,6 @@
 import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-question-repository'
 import { CreateQuestionUseCase } from './create-question'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 let inMemoryQuestionRepository: InMemoryQuestionsRepository
 let sut: CreateQuestionUseCase
@@ -10,14 +11,30 @@ describe('Create Question', () => {
     sut = new CreateQuestionUseCase(inMemoryQuestionRepository)
   })
 
-  it('should create an question', async () => {
+  it('should be able to create a question', async () => {
     const result = await sut.execute({
       authorId: '1',
       title: 'Question Test',
       content: 'A new question to test application use case',
+      attachmentIds: ['1', '2'],
     })
 
-    expect(result.isRight).toBeTruthy()
+    expect(result.isRight()).toBe(true)
     expect(inMemoryQuestionRepository.items[0]).toEqual(result.value?.question)
+    expect(inMemoryQuestionRepository.items[0].attachments).toHaveLength(2)
+    expect(inMemoryQuestionRepository.items[0].attachments).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          props: expect.objectContaining({
+            attachmentId: new UniqueEntityID('1'),
+          }),
+        }),
+        expect.objectContaining({
+          props: expect.objectContaining({
+            attachmentId: new UniqueEntityID('2'),
+          }),
+        }),
+      ]),
+    )
   })
 })
