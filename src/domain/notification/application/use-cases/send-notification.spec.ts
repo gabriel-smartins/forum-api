@@ -16,7 +16,6 @@ describe('Send Notification', () => {
       recipientId: '1',
       title: 'Notification Test',
       content: 'A new notification to test application use case',
-      attachmentsIds: ['1', '2'],
     })
 
     expect(result.isRight()).toBe(true)

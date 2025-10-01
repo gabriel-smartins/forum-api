@@ -7,7 +7,6 @@ interface SendNotificationUseCaseRequest {
   recipientId: string
   title: string
   content: string
-  attachmentsIds: string[]
 }
 
 type SendNotificationUseCaseResponse = Either<
