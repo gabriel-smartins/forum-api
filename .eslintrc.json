@@ -8,6 +8,7 @@
       { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
     ],
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/ban-types": "off"
+    "@typescript-eslint/ban-types": "off",
+    "no-new": "off"
   }
 }
