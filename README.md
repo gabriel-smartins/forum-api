@@ -1,6 +1,5 @@
 # Forum API - Q&A Service
 
-![Test Workflow](https://github.com/gabriel-smartins/forum-api/actions/workflows/test.yml/badge.svg)
 ![Badge da Linguagem](https://img.shields.io/github/languages/top/gabriel-smartins/forum-api)
 ![Badge de Licença](https://img.shields.io/github/license/gabriel-smartins/forum-api)
 
@@ -28,14 +27,12 @@ O código é estruturado em camadas, seguindo a regra de dependência da Clean A
 * **`application`**: Orquestra os `use-cases` (casos de uso) da aplicação. Ela utiliza as entidades e as interfaces de repositório do domínio para executar as ações do sistema.
 * **`infra`**: Implementações concretas das abstrações.
     * **`database`**: Implementação dos repositórios usando **Prisma**.
-    * **`http`**: Camada de apresentação, com os `controllers` do NestJS, `pipes` de validação (com **Zod**) e a configuração dos módulos.
     * **`cryptography`**: Implementação de hash de senhas e JWT.
     * **`env`**: Validação e carregamento das variáveis de ambiente.
 
 ## 🛠️ Tecnologias Utilizadas
 
 * **Linguagem:** **TypeScript**
-* **Framework Principal:** **NestJS**
 * **Gerenciador de Pacotes:** **pnpm**
 * **Banco de Dados & ORM:** **PostgreSQL** com **Prisma**
 * **Validação de Dados:** **Zod**
